@@ -1,0 +1,2 @@
+# sclayPing_Edinet_django
+EdinetスクレイピングのDjangoアプリ
