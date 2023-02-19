@@ -44,3 +44,23 @@ EdinetスクレイピングのDjangoアプリ
 
 11. settings_local.pyにコピ－したSECRET_KEYを貼る
     SECRET_KEY = ''
+
+## ScreeningListへのデータ取り込み方法
+
+1. プロジェクト直下でターミナルを開く
+
+2. 以下のコマンドを実行
+
+- python manage.py runserver
+
+3. 以下のコマンドを実行
+
+- python manage.py makemigrations
+
+4. 以下のコマンドを実行
+
+- python manage.py migrate
+
+5. 対話モードで以下のコードを実行
+
+- - > > > from django.core.management.utils import get_random_secret_key
