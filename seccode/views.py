@@ -1,4 +1,5 @@
-from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DeleteView
 from .models import SecCodeList, ScreeningList
 from pathlib import Path
 
@@ -37,6 +38,9 @@ class ScreeningListV(ListView):
         base_list = cf_haitou_hiritsu(csv_file_path)
         return base_list
 
+    def __str__(self):
+        return self.name
+
     def table_create(self, base_list):
         for row in base_list:
             screening_lists = ScreeningList.objects.create(
@@ -56,3 +60,8 @@ class ScreeningListV(ListView):
                 shares=int(float(row['発行済株式総数'].replace(",", ""))),
             )
         return screening_lists
+
+
+class ScreeningListDeleteV(DeleteView):
+    model = ScreeningList
+    success_url = reverse_lazy('seccode:screening_list')

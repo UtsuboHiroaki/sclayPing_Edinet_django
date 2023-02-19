@@ -51,16 +51,24 @@ EdinetスクレイピングのDjangoアプリ
 
 2. 以下のコマンドを実行
 
-- python manage.py runserver
+- python manage.py makemigrations
 
 3. 以下のコマンドを実行
 
-- python manage.py makemigrations
-
-4. 以下のコマンドを実行
-
 - python manage.py migrate
 
-5. 対話モードで以下のコードを実行
+4. Pycharm等のコンソール機能を使用し対話モードで以下のコードを実行
 
-- - > > > from django.core.management.utils import get_random_secret_key
+- - > > > from seccode.views import ScreeningListV
+
+- - > > > sc = ScreeningListV()
+
+- - > > > base_list = sc.cf_div_ratio()
+
+- - > > > sc.table_create(base_list)
+
+5. Pycharmのデバッグモードで実行(もしくはpython manage.py runserver)
+
+6. 以下に移動する。 
+
+- http://127.0.0.1:8000/seccode/screening/
